@@ -18,3 +18,6 @@ Make Sure To Credit Me
 
 Join My Support Server
 []
+
+You Can Test This Game Using The Link Below:
+https://shawne.codewizardshq.com/Lesson_9_2/foosball.html
