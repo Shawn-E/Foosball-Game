@@ -1,0 +1,102 @@
+<html><head><link href="foosball.css" rel="stylesheet"/><script src="https://code.jquery.com/jquery-3.1.1.min.js"></script><link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"><title>Foosball</title></head><body><script src="//projects.codewizardshq.com/dist/cwhq-skulpt.js" type="text/javascript"></script> <div id="errorMessage"></div> <div id='canvas'></div><script>
+/******************************************************************************
+*                    P Y T H O N  C O D E  B E L O W
+*******************************************************************************/
+  
+              /******************************************************************************
+              *                                                                             *
+              *   Step 1: Give background of football field to the game                     *
+              *                                                                             *
+              *   Step 2: Let’s add our main player and position it on right goal post      *              
+              *                                                                             *
+              *   Step 3: Make our player draggable                                         *             
+              *                                                                             *
+              *   Step 4: Add goal post on left side of field                               *             
+              *                                                                             *
+              *   Step 5: Initialize an array, to be used for storing all players.          *             
+              *                                                                             *
+              *   Step 6: Create a function named addPlayer                                 *
+              *           with x position and y position as arguments                       *             
+              *                                                                             *
+              *   Step 7: Inside function named addPlayer add player image and position it. *             
+              *                                                                             *
+              *   Step 8: Call function named addPlayer to add players in the field.        *             
+              *                                                                             *
+              ******************************************************************************/
+var prog= 
+`start()
+
+addBackground('field.jpg')
+myPlayer = addImage('myplayer.png', 55)
+positionEl(myPlayer, 850, 280)
+draggable(myPlayer)
+movable(myPlayer)
+
+
+goal = addImage('goal.png', 45)
+positionEl(goal, 25, 240)
+
+players = []
+playerCount = 0
+
+def addPlayer(xPos, yPos):
+    global playerCount
+    playerImage = addImage('player.png', 38)
+    players.append(playerImage)
+    positionEl(players[playerCount], xPos, yPos)
+    moveY(players[playerCount], yPos, yPos+100, 'infinite', True, randomNum(50, 100))   
+   
+    playerCount += 1 
+
+addPlayer(350, 0)
+addPlayer(350, 150)
+addPlayer(350, 300)
+addPlayer(350, 450)
+
+addPlayer(250, 50)
+addPlayer(250, 200)
+addPlayer(250, 350)
+
+addPlayer(150, 0)
+addPlayer(150, 150)
+addPlayer(150, 300)
+addPlayer(150, 450)
+
+addPlayer(50, 190)
+
+def win():
+    clear()
+    addHeading('Goooooaaal', 100)
+
+checkCollision(goal, myPlayer, win)
+
+livesCount = 3
+livesText = addText(livesCount, 34)
+
+def hit():
+    global livesCount
+    if livesCount == 1:
+        clear()
+        addHeading('You Lose...', 100)
+    livesCount = livesCount - 1 
+    positionEl(myPlayer, 450, 250)
+    updateText(livesText, livesCount)
+
+checkCollision(players, myPlayer, hit)
+
+
+
+
+
+
+
+
+
+
+
+
+`;
+/******************************************************************************
+*                    P Y T H O N  C O D E  A B O V E
+*******************************************************************************/
+cwhqCompiler(prog);</script></body></html>
