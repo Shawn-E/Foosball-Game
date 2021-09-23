@@ -4,15 +4,13 @@ Below Are A Few Thing To Edit To Change Things About The Game
 
 NOTE [ALL THIS CAN BE FOUND IN foosball.html]
 
-How To Change goal, player, myplayer, field 
+To Change The Speed Of The Players Go To Line 47 And You Should See   moveY(players[playerCount], yPos, yPos+100, 'infinite', True, randomNum(50, 100))   
+Change This Value To Another Number Range Or a Value Such As 34
 
-NOTE [ALL IMAGES MUST BE .png BESIDES THE FIELD WHICH IS .jpeg]
-Steps: 
+To Add More Player Add This To The Area Where We Have The Players 
+addPlayer(350, 150)
+Just Change The Numbers To Other Coordinates
 
-1.) Get The Image That You Want To Add And Name It (goal, player, myplayer, field).
-2.) 
-3.)
-4.)
 
 Make Sure To Credit Me 
 
